@@ -20,8 +20,17 @@ namespace MEventsPlusV2.Controllers
         }
 
         // GET: Customers
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
         {
+            {
+                var Customers = from c in _context.Customer
+                             select c;
+
+                if (!String.IsNullOrEmpty(searchString))
+                {
+                    Customers = Customers.Where(s => s.FName.Contains(searchString));
+                }
+            }
             return View(await _context.Customer.ToListAsync());
         }
 

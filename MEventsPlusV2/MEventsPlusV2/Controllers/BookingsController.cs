@@ -60,7 +60,7 @@ namespace MEventsPlusV2.Controllers
             {
                 _context.Add(bookings);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Index));       // Bind method allows all the attributes to be created on the system 
             }
             return View(bookings);
         }

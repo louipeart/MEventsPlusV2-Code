@@ -14,7 +14,7 @@ namespace MEventsPlusV2.Models
         [Display(Name = "Dateofbirth")]
         public DateTime Dateofbirth { get; set; }
         [Required]
-        [StringLength(11, ErrorMessage = "Telno cannot be longer than 11 characters")]
+        [StringLength(11, ErrorMessage = "Telno cannot be longer than 11 characters")] //Error message allows the user to be restricted to the aunt of characters they use
         [Display(Name = "Telno")]
         public string Telno { get; set; }
         [Required]

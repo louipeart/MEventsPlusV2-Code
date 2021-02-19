@@ -20,8 +20,17 @@ namespace MEventsPlusV2.Controllers
         }
 
         // GET: Staffs
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string id)
         {
+            {
+                var Staff = from s in _context.Staffs
+                                select s;
+
+                if (!String.IsNullOrEmpty(id))
+                {
+                    Staff = Staff.Where(s => s.FName.Contains(id));
+                }
+            }
             return View(await _context.Staffs.ToListAsync());
         }
 
@@ -33,14 +42,14 @@ namespace MEventsPlusV2.Controllers
                 return NotFound();
             }
 
-            var staff = await _context.Staffs
+            var staffs = await _context.Staffs
                 .FirstOrDefaultAsync(m => m.ID == id);
-            if (staff == null)
+            if (staffs == null)
             {
                 return NotFound();
             }
 
-            return View(staff);
+            return View(staffs);
         }
 
         // GET: Staffs/Create

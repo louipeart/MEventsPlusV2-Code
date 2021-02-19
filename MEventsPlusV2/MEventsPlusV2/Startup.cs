@@ -30,7 +30,7 @@ namespace MEventsPlusV2
             services.AddMvc();
             services.AddDbContext<MEventsV2DbContext>(options =>
                 options.UseSqlServer(
-                    Configuration.GetConnectionString("DefaultConnection")));
+                    Configuration.GetConnectionString("MEventsV2DbContext")));
             services.AddDatabaseDeveloperPageExceptionFilter();
 
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)

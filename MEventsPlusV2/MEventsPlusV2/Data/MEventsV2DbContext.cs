@@ -31,7 +31,7 @@ namespace MEventsPlusV2.Data
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Events>().ToTable("Events");
             modelBuilder.Entity<Customer>().ToTable("Customers");
-            modelBuilder.Entity<Staff>().ToTable("Staff");
+            modelBuilder.Entity<Staff>().ToTable("Staffs");
             modelBuilder.Entity<Bookings>().ToTable("Bookings");
             modelBuilder.Entity<EAddress>().ToTable("EAddresses");
             modelBuilder.Entity<EInfo>().ToTable("EInfo");

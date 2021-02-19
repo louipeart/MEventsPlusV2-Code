@@ -13,6 +13,7 @@ namespace MEventsPlusV2.Models
         [StringLength(100)]
         [Display(Name = "FName")]
         public string FName { get; set; }
+        [RegularExpression(@"^[A-Z]+[a-zA-Z0-9""'\s-]*$")]
         [Required]
         [StringLength(100)]
         [Display(Name = "LName")]

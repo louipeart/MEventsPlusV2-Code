@@ -20,9 +20,19 @@ namespace MEventsPlusV2.Controllers
         }
 
         // GET: SInfoes
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string id)
+
         {
-            return View(await _context.SInfos.ToListAsync());
+            {
+                var SInfo = from s in _context.SInfos
+                            select s;
+
+                if (!String.IsNullOrEmpty(id))
+                {
+                    SInfo = SInfo.Where(s => s.FName.Contains(id));
+                }
+                return View(await _context.SInfos.ToListAsync());
+            }
         }
 
         // GET: SInfoes/Details/5

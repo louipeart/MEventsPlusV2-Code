@@ -20,8 +20,15 @@ namespace MEventsPlusV2.Controllers
         }
 
         // GET: Events
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
         {
+            var Events = from e in _context.Event
+                         select e;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                Events = Events.Where(s => s.Time.Contains(searchString));
+            }
             return View(await _context.Event.ToListAsync());
         }
 
@@ -46,7 +53,7 @@ namespace MEventsPlusV2.Controllers
         // GET: Events/Create
         public IActionResult Create()
         {
-            return View();
+            return View();                                           /*Create actiong method displays the initial create form*/
         }
 
         // POST: Events/Create

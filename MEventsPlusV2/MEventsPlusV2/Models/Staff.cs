@@ -11,8 +11,9 @@ namespace MEventsPlusV2.Models
         public int ID { get; set; }
         public string FName { get; set; }
         [Required]
-        [StringLength(100)]
+        [StringLength(100,ErrorMessage = "FName cannot be longer than 100 characters")]
         [Display(Name = "LName")]
+        [RegularExpression(@"^[A-Z]+[a-zA-Z0-9""'\s-]*$")] //Regular expression making sure letters are only used, uppercase letter must be used at the beginning, special characters are not allowed.
         public string LName { get; set; }
         [Required]
         [StringLength(100)]
@@ -27,5 +28,6 @@ namespace MEventsPlusV2.Models
         public string Jobrole { get; set; }
         public ICollection<SInfo> SInfos { get; set; }
         public ICollection<SAddress> SAddresses { get; set; }
+        public ICollection<Staff> Staffs { get; set; }
     }
 }

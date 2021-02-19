@@ -17,7 +17,7 @@ namespace MEventsPlusV2.Models
         [Display(Name = "City")]
         public string City { get; set; }
         [StringLength(100)]
-        [Display(Name = "State")]
+        [Display(Name = "State")] //String Length must not go over 100 characters.
         public string State { get; set; }
         public ICollection<CAddress> CAddresses { get; set; }
     }
